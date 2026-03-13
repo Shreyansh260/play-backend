@@ -149,7 +149,7 @@ function showJoin(){
   roomActionBtn.onclick=()=>{ msg.innerText="Joined successfully!"; roomActionBtn.style.display="none"; };
 
   const pollInterval=setInterval(()=>{
-    fetch(`http://localhost:5000/api/challenge/room-code/${challengeId}`)
+    fetch(`https://play-backend-xa7x.onrender.com/api/challenge/room-code/${challengeId}`)
     .then(res=>res.json())
     .then(data=>{
       if(data.game_code){
@@ -165,7 +165,7 @@ function submitCode(){
   const code=roomCodeInput.value.trim();
   if(!/^\d{8}$/.test(code)){ alert("Room code must be exactly 8 digits"); return; }
 
-  fetch("http://localhost:5000/api/challenge/create-room",{
+  fetch("https://play-backend-xa7x.onrender.com/api/challenge/create-room",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({challenge_id:challengeId,game_code:code})
@@ -196,7 +196,7 @@ function submitResult(result){
   formData.append("result",result);
   formData.append("screenshot",file);
 
-  fetch("http://localhost:5000/api/challenge/submit-result",{method:"POST",body:formData})
+  fetch("https://play-backend-xa7x.onrender.com/api/challenge/submit-result",{method:"POST",body:formData})
   .then(res=>res.json())
   .then(data=>alert(data.message));
 }
