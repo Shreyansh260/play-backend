@@ -83,7 +83,7 @@
       }
 
       try {
-        const res = await fetch("http://localhost:5000/api/adminAuth/login", {
+        const res = await fetch("https://play-backend-xa7x.onrender.com/api/adminAuth/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password })
@@ -93,14 +93,14 @@
         msg.innerText = data.message;
 
         if (data.success) {
-          msg.style.color = "green"; // Success message in green
+          msg.style.color = "green"; 
           localStorage.setItem("admin", JSON.stringify(data.admin));
           // Redirect to admin dashboard
           setTimeout(() => {
             window.location.href = "admin/dashboard.html";
           }, 1000);
         } else {
-          msg.style.color = "red"; // Error message in red
+          msg.style.color = "red"; 
         }
 
       } catch (err) {
