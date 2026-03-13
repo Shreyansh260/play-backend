@@ -85,7 +85,7 @@
       }
 
       try {
-        const res = await fetch("http://localhost:5000/api/adminAuth/register", {
+        const res = await fetch("https://play-backend-xa7x.onrender.com/api/adminAuth/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, password })
@@ -95,13 +95,13 @@
         msg.innerText = data.message;
 
         if (data.success) {
-          msg.style.color = "green"; // Success message in green
+          msg.style.color = "green"; 
           // Redirect to login after 1.5s
           setTimeout(() => {
             window.location.href = "adminLogin.html";
           }, 1500);
         } else {
-          msg.style.color = "red"; // Error message in red
+          msg.style.color = "red"; 
         }
       } catch (err) {
         msg.innerText = "Server error, try again later";
