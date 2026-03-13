@@ -92,7 +92,6 @@ input[type="submit"]:hover{
   <p>If you have any issue, you can contact us via Call or WhatsApp:</p>
   
   <div style="text-align:center;">
-    <!-- Replace phone numbers with your support number -->
     <a href="tel:+919602935329"><button class="call">Call Support</button></a>
     <a href="https://wa.me/919602935329" target="_blank"><button class="whatsapp">WhatsApp</button></a>
   </div>
@@ -121,7 +120,7 @@ document.querySelector("form").addEventListener("submit", async function(e){
   const contact = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
-  const res = await fetch("http://localhost:5000/api/wallet/help-request", {
+  const res = await fetch("https://play-backend-xa7x.onrender.com/api/wallet/help-request", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, contact, message })
