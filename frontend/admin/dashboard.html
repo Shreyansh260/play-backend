@@ -173,7 +173,7 @@ function toggleDropdown(){
 
 /* 🔔 Load Admin Notifications */
 function loadNotifications(){
-fetch(`http://localhost:5000/api/admin/notification`)
+fetch(`https://play-backend-xa7x.onrender.com/api/admin/notification`)
 .then(res=>res.json())
 .then(data=>{
 const list=document.getElementById("notificationList");
@@ -191,7 +191,7 @@ data.notifications.forEach(n=>{
 
 /* 🔔 Count */
 function loadCount(){
-fetch(`http://localhost:5000/api/admin/notification/count`)
+fetch(`https://play-backend-xa7x.onrender.com/api/admin/notification/count`)
 .then(res=>res.json())
 .then(data=>{
 document.getElementById("badge").innerText=data.count;
@@ -200,7 +200,7 @@ document.getElementById("badge").innerText=data.count;
 
 /* 🔔 Mark Read */
 function markRead(id){
-fetch(`http://localhost:5000/api/admin/notification/read/${id}`,{method:"POST"})
+fetch(`https://play-backend-xa7x.onrender.com/api/admin/notification/read/${id}`,{method:"POST"})
 .then(()=>{
 loadNotifications();
 loadCount();
@@ -226,7 +226,7 @@ function goToPage(page){
 /* Stats */
 async function loadStats(){
   try {
-    const res = await fetch("http://localhost:5000/api/admin/stats");
+    const res = await fetch("https://play-backend-xa7x.onrender.com/api/admin/stats");
     const data = await res.json();
 
     document.getElementById("usersCount").innerText = data.totalUsers || 0;
