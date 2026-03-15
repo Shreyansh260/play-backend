@@ -62,7 +62,7 @@ const withdrawBox = document.getElementById("withdrawBox");
 /* LOAD BALANCE */
 async function loadWallet() {
   try{
-    const r = await fetch(`https://play-backend-xa7x.onrender.com/api/wallet/balance/${user.id}`);
+    const r = await fetch(`https://play-backend-23rs.onrender.com/api/wallet/balance/${user.id}`);
     const d = await r.json();
     document.getElementById("balance").innerText = d.wallet || 0;
   }catch(err){
@@ -76,12 +76,12 @@ async function showDeposit(){
   withdrawBox.style.display="none";
 
   try{
-    const res = await fetch("https://play-backend-xa7x.onrender.com/api/wallet/qr");
+    const res = await fetch("https://play-backend-23rs.onrender.com/api/wallet/qr");
     const data = await res.json();
 
     if(data.qr){
       document.getElementById("qrImg").src =
-  "https://play-backend-xa7x.onrender.com/uploads/" + encodeURIComponent(data.qr);
+  "https://play-backend-23rs.onrender.com/uploads/" + encodeURIComponent(data.qr);
     }
   }catch(err){
     console.log(err);
@@ -107,7 +107,7 @@ async function depositCoins() {
   fd.append("screenshot", file);
 
   try{
-    const r = await fetch("https://play-backend-xa7x.onrender.com/api/wallet/deposit",{method:"POST",body:fd});
+    const r = await fetch("https://play-backend-23rs.onrender.com/api/wallet/deposit",{method:"POST",body:fd});
     const d = await r.json();
     msg.innerText = d.message;
     loadWallet();
@@ -130,7 +130,7 @@ async function withdrawCoins() {
   fd.append("qr_image", file);
 
   try{
-    const r = await fetch("https://play-backend-xa7x.onrender.com/api/wallet/withdraw",{method:"POST",body:fd});
+    const r = await fetch("https://play-backend-23rs.onrender.com/api/wallet/withdraw",{method:"POST",body:fd});
     const d = await r.json();
     msg.innerText = d.message;
     loadWallet();
