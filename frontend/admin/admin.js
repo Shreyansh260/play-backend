@@ -1,4 +1,4 @@
-const API = "https://play-backend-xa7x.onrender.com/api/admin";
+const API = "https://play-backend-23rs.onrender.com/api/admin";
 
 // ============================
 // Check admin login
